@@ -4,8 +4,8 @@
     {
         List<SuperHero> Heros { get; set; }
         List<Comic> Comics { get; set; }
-        Task GetComics();
-        Task GetSuperHeroes();
-        Task<SuperHero> GetSingleHero(int id);
+        Task GetComicsAsync();
+        Task GetSuperHeroesAsync();
+        Task<SuperHero> GetSingleHeroAsync(int? id);
     }
 }

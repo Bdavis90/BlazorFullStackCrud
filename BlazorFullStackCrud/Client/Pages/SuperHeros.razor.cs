@@ -6,10 +6,17 @@ namespace BlazorFullStackCrud.Client.Pages
     {
         [Inject]
         public ISuperHeroService SuperHeroService { get; set; }
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            await SuperHeroService.GetSuperHeroes();
+            await SuperHeroService.GetSuperHeroesAsync();
+        }
+
+        private void ShowHero(int id)
+        {
+            NavigationManager.NavigateTo($"hero/{id}");
         }
     }
 }

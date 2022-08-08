@@ -21,14 +21,16 @@ namespace BlazorFullStackCrud.Server.Controllers
                 FirstName = "Peter",
                 LastName = "Parker",
                 HeroName = "Spiderman",
-                Comic = Comics[0]
+                Comic = Comics[0],
+                ComicId = 1,
             },
             new SuperHero{
                 Id = 2,
                 FirstName = "Bruce",
                 LastName = "Wayne",
                 HeroName = "Batman",
-                Comic = Comics[1]
+                Comic = Comics[1],
+                ComicId = 2
             }
 
         };
@@ -37,6 +39,12 @@ namespace BlazorFullStackCrud.Server.Controllers
         public async Task<ActionResult<List<SuperHero>>> GetSuperHeros()
         {
             return Ok(SuperHeroes);
+        }
+
+        [HttpGet("comics")]
+        public async Task<ActionResult<List<Comic>>> GetComics()
+        {
+            return Ok(Comics);
         }
 
         [HttpGet("{id}")]
